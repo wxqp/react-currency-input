@@ -85,8 +85,9 @@ const CurrencyInput = React.createClass({
                 //Strip out anything that is not a digit, -, or decimal separator
                 initialValue = initialValue.replace(/[^0-9-.]/g, '');
 
-                // now we can parse.
-                initialValue = Number.parseFloat(initialValue);
+                // now we can parse to float, using value * 1, because IE fail with parseFloat function.
+                //initialValue = Number.parseFloat(initialValue);
+                  initialValue = initialValue * 1.00;
             }
             initialValue = Number(initialValue).toLocaleString(undefined, {
                 style                : 'decimal',
